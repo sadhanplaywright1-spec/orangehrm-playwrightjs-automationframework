@@ -1,0 +1,3 @@
+username,password,expectedResult,expectedMessage
+Admin,admin123,success,
+Admin,wrongpass,invalid,Invalid credentials

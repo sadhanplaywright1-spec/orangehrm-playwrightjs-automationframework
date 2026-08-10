@@ -1,0 +1,5 @@
+{
+  "baseUrl": "https://opensource-demo.orangehrmlive.com",
+  "apiBaseUrl": "https://opensource-demo.orangehrmlive.com",
+  "environment": "staging"
+}
