@@ -39,6 +39,8 @@ module.exports = defineConfig({
   },
   projects: [
     { name: 'chromium', use: { browserName: 'chromium' } },
+    { name: 'firefox', use: { browserName: 'firefox' } },
+    { name: 'webkit', use: { browserName: 'webkit' } }
   ],
   globalSetup: require.resolve('./src/fixtures/global-setup.js'),
   globalTeardown: require.resolve('./src/fixtures/global-teardown.js'),

@@ -5,18 +5,22 @@ pipeline {
     CI = 'true'
     TEST_ENV = 'qa'
     NODE_ENV = 'test'
+    IMAGE_NAME = 'orangehrm-playwright'
+    DOCKER_TAG = "${env.BUILD_NUMBER ?: 'local'}"
+    EMAIL_TO = 'team@example.com'
   }
 
   options {
     timestamps()
-    timeout(time: 60, unit: 'MINUTES')
+    timeout(time: 75, unit: 'MINUTES')
     buildDiscarder(logRotator(numToKeepStr: '20'))
   }
 
   stages {
     stage('Checkout') {
       steps {
-        echo 'Checking out repository...'
+        echo "Running pipeline for branch: ${env.BRANCH_NAME ?: 'local'}"
+        checkout scm
       }
     }
 
@@ -26,15 +30,43 @@ pipeline {
       }
     }
 
-    stage('Install Playwright browsers') {
+    stage('Branch classification') {
       steps {
-        sh 'npx playwright install --with-deps chromium'
+        script {
+          env.BRANCH_TYPE = (env.BRANCH_NAME == 'main' || env.BRANCH_NAME == 'master') ? 'mainline'
+            : (env.BRANCH_NAME == 'develop' || env.BRANCH_NAME == 'staging') ? 'integration'
+            : 'feature'
+        }
+        echo "Branch type: ${env.BRANCH_TYPE}"
       }
     }
 
-    stage('Run all tests') {
+    stage('UI tests') {
       steps {
-        sh 'npx playwright test --reporter=line,allure-playwright'
+        sh 'npx playwright test tests/ui --reporter=line,allure-playwright'
+      }
+    }
+
+    stage('API tests') {
+      when {
+        anyOf {
+          branch 'main'; branch 'master'; branch 'develop'; branch 'staging'
+        }
+      }
+      steps {
+        sh 'npx playwright test tests/api --reporter=line,allure-playwright'
+      }
+    }
+
+    stage('Coverage report') {
+      when {
+        anyOf {
+          branch 'main'; branch 'master'
+        }
+      }
+      steps {
+        sh 'npx playwright test tests/ui tests/api --coverage --reporter=line,allure-playwright || true'
+        sh 'npx nyc report --reporter=text-summary --reporter=lcov --report-dir coverage || true'
       }
     }
 
@@ -66,18 +98,24 @@ pipeline {
       ])
 
       archiveArtifacts(
-        artifacts: 'playwright-report/**, allure-report/**, test-results/**, tmp-storage.json',
+        artifacts: 'playwright-report/**, allure-report/**, coverage/**, allure-results/**, test-results/**, tmp-storage.json',
         allowEmptyArchive: true,
         fingerprint: true
       )
     }
 
-    failure {
-      echo 'Build failed. Review Playwright and Allure reports.'
-    }
-
     success {
       echo 'Build succeeded.'
+      mail to: env.EMAIL_TO,
+        subject: "SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+        body: "Pipeline completed successfully for branch ${env.BRANCH_NAME ?: 'local'}\nAllure report is available from the Jenkins job."
+    }
+
+    failure {
+      echo 'Build failed. Review Playwright and Allure reports.'
+      mail to: env.EMAIL_TO,
+        subject: "FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+        body: "Pipeline failed for branch ${env.BRANCH_NAME ?: 'local'}\nPlease review the Playwright and Allure reports."
     }
   }
 }

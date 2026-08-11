@@ -8,4 +8,8 @@ playwright
 playwright
 .auth
 allure-report
-allure-results
+allure-results 
+project-presentation-pdf-friendly.md
+project-presentation.md
+docker-compose.yml
+Dockerfile

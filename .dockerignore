@@ -1,0 +1,16 @@
+node_modules
+.git
+.gitignore
+allure-results
+allure-report
+playwright-report
+playwright
+.cache
+blob-report
+test-results
+coverage
+npm-debug.log*
+.tmp
+.DS_Store
+tmp-storage.json
+tmp-storage-debug.json

@@ -1,0 +1,28 @@
+name: Email notifications
+
+on:
+  workflow_run:
+    workflows:
+      - "Playwright CI"
+    types:
+      - completed
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.SMTP_SERVER }}
+          server_port: ${{ secrets.SMTP_PORT }}
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "Playwright CI status: ${{ github.event.workflow_run.conclusion }}"
+          to: ${{ secrets.EMAIL_TO }}
+          from: GitHub Actions
+          body: |
+            The Playwright CI workflow finished with status: ${{ github.event.workflow_run.conclusion }}
+            Repository: ${{ github.repository }}
+            Branch: ${{ github.event.workflow_run.head_branch }}
+            Run URL: ${{ github.event.workflow_run.html_url }}
