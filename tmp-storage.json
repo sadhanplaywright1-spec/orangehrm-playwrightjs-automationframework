@@ -2,7 +2,11 @@
   "cookies": [
     {
       "name": "orangehrm",
+<<<<<<< Updated upstream
       "value": "cqpit38qjs6nkic7muakqs4hpp",
+=======
+      "value": "jk3upds3s3k9si7m6bnud5sape",
+>>>>>>> Stashed changes
       "domain": "opensource-demo.orangehrmlive.com",
       "path": "/web",
       "expires": -1,
