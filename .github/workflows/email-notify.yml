@@ -1,27 +1,35 @@
-name: Email notifications
-
+name: Email Notifications
 on:
-  workflow_run:
-    workflows:
-      - "Playwright CI"
-    types:
-      - completed
+workflow_run:
+workflows:
+- "CI/CD Pipeline"
+types:
+- completed
 jobs:
-  notify:
-    runs-on: windows-latest
-    steps:
-      - name: Send email
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: ${{ secrets.SMTP_SERVER }}
-          server_port: ${{ secrets.SMTP_PORT }}
-          username: ${{ secrets.SMTP_USERNAME }}
-          password: ${{ secrets.SMTP_PASSWORD }}
-          subject: "Playwright CI status: ${{ github.event.workflow_run.conclusion }}"
-          to: ${{ secrets.EMAIL_TO }}
-          from: GitHub Actions
-          body: |
-            The Playwright CI workflow finished with status: ${{ github.event.workflow_run.conclusion }}
-            Repository: ${{ github.repository }}
-            Branch: ${{ github.event.workflow_run.head_branch }}
-            Run URL: ${{ github.event.workflow_run.html_url }}
+notify:
+runs-on: ubuntu-latest
+steps:
+- name: Send Email Notification
+uses: dawidd6/action-send-mail@v3
+with:
+server_address: ${{ secrets.SMTP_SERVER }}
+server_port: ${{ secrets.SMTP_PORT }}
+secure: true
+username: ${{ secrets.SMTP_USERNAME }}
+password: ${{ secrets.SMTP_PASSWORD }}
+subject: |
+Playwright CI Status: ${{ github.event.workflow_run.conclusion }}
+to: ${{ secrets.EMAIL_TO }}
+from: ${{ secrets.SMTP_USERNAME }}
+body: |
+Hello,
+The Playwright CI/CD workflow has completed.
+Status: ${{ github.event.workflow_run.conclusion }}
+Repository: ${{ github.repository }}
+Branch: ${{ github.event.workflow_run.head_branch }}
+Workflow: ${{ github.event.workflow_run.name }}
+Run Number: ${{ github.event.workflow_run.run_number }}
+Run URL:
+${{ github.event.workflow_run.html_url }}
+Regards,
+GitHub Actions
