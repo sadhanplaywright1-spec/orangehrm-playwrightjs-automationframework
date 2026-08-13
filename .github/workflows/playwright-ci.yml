@@ -1,7 +1,9 @@
-name: Playwright CI
-on:
+ name: CI
+ on:
   push:
-    branches:
+  env:
+     ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
+     branches:
       - main
       - master
       - develop
@@ -13,7 +15,7 @@ on:
       - develop
       - staging
 
-jobs:
+ jobs:
   ui-tests:
     runs-on: ubuntu-latest
     steps:
