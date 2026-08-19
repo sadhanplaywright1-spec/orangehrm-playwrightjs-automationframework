@@ -1,0 +1,86 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: employee-get.spec.js >> @api @smoke Verify Employee GET
+- Location: tests\api\employee-get.spec.js:7:1
+
+# Error details
+
+```
+Error: apiRequestContext.get: getaddrinfo ENOTFOUND uat-reqres.in
+Call log:
+  - → GET https://uat-reqres.in/api/users/2
+    - user-agent: Playwright/1.62.1 (x64; windows 10.0) node/24.12
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+    - Content-Type: application/json
+    - x-api-key: free_user_3Hy0JZFQNQm8FCdE58jZXaqyfUE
+
+```
+
+# Test source
+
+```ts
+  1  | require('dotenv').config();
+  2  | const { request } =
+  3  | require('@playwright/test');
+  4  | class BaseApi {
+  5  | async createContext() {
+  6  | return await request.newContext({
+  7  | extraHTTPHeaders: {
+  8  | 'Content-Type':
+  9  | 'application/json',
+  10 | 'x-api-key':
+  11 | process.env.REQRES_API_KEY
+  12 | }
+  13 | });
+  14 | }
+  15 | async get(url) {
+  16 | const context =
+  17 | await this.createContext();
+> 18 | return await context.get(url);
+     |                      ^ Error: apiRequestContext.get: getaddrinfo ENOTFOUND uat-reqres.in
+  19 | }
+  20 | async post(url, payload) {
+  21 | const context =
+  22 | await this.createContext();
+  23 | return await context.post(
+  24 | url,
+  25 | {
+  26 | data: payload
+  27 | }
+  28 | );
+  29 | }
+  30 | async put(url, payload) {
+  31 | const context =
+  32 | await this.createContext();
+  33 | return await context.put(
+  34 | url,
+  35 | {
+  36 | data: payload
+  37 | }
+  38 | );
+  39 | }
+  40 | async patch(url, payload) {
+  41 | const context =
+  42 | await this.createContext();
+  43 | return await context.patch(
+  44 | url,
+  45 | {
+  46 | data: payload
+  47 | }
+  48 | );
+  49 | }
+  50 | async delete(url) {
+  51 | const context =
+  52 | await this.createContext();
+  53 | return await context.delete(url);
+  54 | }
+  55 | }
+  56 | module.exports = BaseApi;
+```

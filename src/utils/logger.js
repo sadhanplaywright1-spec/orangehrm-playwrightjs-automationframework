@@ -1,14 +1,11 @@
-const pino = require('pino');
-
-let logger;
-
-try {
-  logger = pino({
-    level: process.env.LOG_LEVEL || 'info',
-    transport: { target: 'pino-pretty', options: { colorize: false } },
-  });
-} catch (error) {
-  logger = pino({ level: process.env.LOG_LEVEL || 'info' });
-}
-
+const winston = require("winston");
+const logger = winston.createLogger({
+level: "info",
+transports: [
+new winston.transports.File({
+filename: "logs/application.log"
+}),
+new winston.transports.Console()
+]
+});
 module.exports = logger;

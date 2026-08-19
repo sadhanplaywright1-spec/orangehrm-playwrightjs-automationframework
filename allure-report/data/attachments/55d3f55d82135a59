@@ -1,0 +1,35 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: dashboard.spec.js >> @smoke Verify Dashboard Page
+- Location: tests\ui\dashboard.spec.js:5:1
+
+# Error details
+
+```
+ReferenceError: expect is not defined
+```
+
+# Test source
+
+```ts
+  1  | const { test } = require('@playwright/test');
+  2  | const LoginPage =require('../../src/pages/LoginPage');
+  3  | const DashboardPage =require('../../src/pages/DashboardPage');
+  4  | const env =require('../../src/utils/EnvironmentManager');
+  5  | test('@smoke Verify Dashboard Page', async ({ page }) => {
+  6  | await page.goto(env.baseURL);
+  7  | const loginPage =new LoginPage(page);
+  8  | await loginPage.login(env.username,env.password);
+  9  | await page.waitForURL(
+  10 | '**/dashboard/index');
+> 11 | await expect(page.locator('h6:has-text("Dashboard")')
+     |  ^ ReferenceError: expect is not defined
+  12 | ).toBeVisible();
+  13 | });
+```

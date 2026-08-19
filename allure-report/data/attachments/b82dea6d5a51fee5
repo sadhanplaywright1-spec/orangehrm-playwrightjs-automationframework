@@ -1,0 +1,56 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: login.spec.js >> Verify Login
+- Location: tests\ui\login.spec.js:5:1
+
+# Error details
+
+```
+Error: page.goto: net::ERR_NAME_NOT_RESOLVED at https://staging-orangehrm.company.com/
+Call log:
+  - navigating to "https://staging-orangehrm.company.com/", waiting until "load"
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - generic [ref=e6]:
+    - heading "This site can’t be reached" [level=1] [ref=e7]
+    - paragraph [ref=e8]: Check if there is a typo in staging-orangehrm.company.com.
+    - generic [ref=e9]:
+      - paragraph
+      - list [ref=e10]:
+        - listitem [ref=e11]:
+          - text: If spelling is correct,
+          - link "try running Windows Network Diagnostics" [ref=e12] [cursor=pointer]:
+            - /url: javascript:diagnoseErrors()
+          - text: .
+    - generic [ref=e13]: DNS_PROBE_FINISHED_NXDOMAIN
+  - button "Reload" [ref=e16] [cursor=pointer]
+```
+
+# Test source
+
+```ts
+  1  | const {test,expect} = require('../../src/fixtures/CustomFixtures');
+  2  | const LoginPage =require('../../src/pages/LoginPage');
+  3  | const DashboardPage =require('../../src/pages/DashboardPage');
+  4  | const env =require('../../src/utils/EnvironmentManager');
+  5  | test('Verify Login', async ({ page }) => {
+> 6  | await page.goto(env.baseURL);
+     |            ^ Error: page.goto: net::ERR_NAME_NOT_RESOLVED at https://staging-orangehrm.company.com/
+  7  | const loginPage =new LoginPage(page);
+  8  | await loginPage.login(env.username,env.password)
+  9  | await expect(page.locator('h6')).toBeVisible();
+  10 | const dashboardPage =new DashboardPage(page);
+  11 | await expect(dashboardPage.dashboardHeader).toBeVisible();
+  12 | });
+```

@@ -1,9 +1,15 @@
-const xlsx = require('xlsx');
-
-function readXlsx(filePath, sheetName = null) {
-  const wb = xlsx.readFile(filePath);
-  const sheet = sheetName || wb.SheetNames[0];
-  return xlsx.utils.sheet_to_json(wb.Sheets[sheet]);
+const XLSX = require('xlsx');
+class ExcelReader {
+static readExcel(filePath) {
+const workbook =
+XLSX.readFile(filePath);
+const sheetName =
+workbook.SheetNames[0];
+const worksheet =
+workbook.Sheets[sheetName];
+return XLSX.utils.sheet_to_json(
+worksheet
+);
 }
-
-module.exports = { readXlsx };
+}
+module.exports = ExcelReader;

@@ -1,0 +1,37 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: login.spec.js >> Verify Login
+- Location: tests\ui\login.spec.js:5:1
+
+# Error details
+
+```
+Error: page.goto: Could not resolve hostname
+Call log:
+  - navigating to "https://staging-orangehrm.company.com/", waiting until "load"
+
+```
+
+# Test source
+
+```ts
+  1  | const {test,expect} = require('../../src/fixtures/CustomFixtures');
+  2  | const LoginPage =require('../../src/pages/LoginPage');
+  3  | const DashboardPage =require('../../src/pages/DashboardPage');
+  4  | const env =require('../../src/utils/EnvironmentManager');
+  5  | test('Verify Login', async ({ page }) => {
+> 6  | await page.goto(env.baseURL);
+     |            ^ Error: page.goto: Could not resolve hostname
+  7  | const loginPage =new LoginPage(page);
+  8  | await loginPage.login(env.username,env.password)
+  9  | await expect(page.locator('h6')).toBeVisible();
+  10 | const dashboardPage =new DashboardPage(page);
+  11 | await expect(dashboardPage.dashboardHeader).toBeVisible();
+  12 | });
+```

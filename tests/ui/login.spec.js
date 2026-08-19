@@ -1,18 +1,12 @@
-const { test, expect } = require('@playwright/test');
-const LoginPage = require('../../src/pages/LoginPage');
-const logger = require('../../src/utils/logger');
-test.describe('Login flow', () => {
-  test('login with valid credentials', async ({ page }, testInfo) => {
-    logger.info({ test: testInfo.title, stage: 'start' });
-    const loginPage = new LoginPage(page);
-    const username = process.env.UI_USER || 'Admin';
-    const password = process.env.UI_PASS || 'admin123';
-
-    await loginPage.goto();
-    await test.step('Login action', async () => {
-      await loginPage.login(username, password);
-    });
-    await loginPage.expectLoggedIn();
-    logger.info({ test: testInfo.title, stage: 'end' });
-  });
+const {test,expect} = require('../../src/fixtures/CustomFixtures');
+const LoginPage =require('../../src/pages/LoginPage');
+const DashboardPage =require('../../src/pages/DashboardPage');
+const env =require('../../src/utils/EnvironmentManager');
+test('@regression Verify Employee List Page', async ({ page }) =>{
+await page.goto(env.baseURL);
+const loginPage =new LoginPage(page);
+await loginPage.login(env.username,env.password)
+await expect(page.locator('h6')).toBeVisible();
+const dashboardPage =new DashboardPage(page);
+await expect(dashboardPage.dashboardHeader).toBeVisible();
 });

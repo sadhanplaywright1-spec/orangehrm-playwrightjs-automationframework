@@ -1,0 +1,6 @@
+{
+"baseURL": "https://opensource-demo.orangehrmlive.com",
+"apiBaseUrl": "https://reqres.in/api",
+"username": "Admin",
+"password": "admin123"
+}

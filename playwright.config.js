@@ -1,48 +1,25 @@
-// @ts-check
-const os = require('os');
-const { defineConfig } = require('@playwright/test');
-require('dotenv').config();
-
-const env = process.env.TEST_ENV || 'qa';
-const configForEnv = require(`./config/${env}.json`);
-const environmentInfo = {
-  TEST_ENV: env,
-  ENVIRONMENT: configForEnv.environment || env,
-  BASE_URL: configForEnv.baseUrl,
-  API_BASE_URL: configForEnv.apiBaseUrl,
-  NODE_VERSION: process.version,
-  OS: `${process.platform} ${os.release()}`,
-  BROWSER: 'chromium',
-};
-
-module.exports = defineConfig({
-  testDir: './tests',
-  timeout: 90_000,
-  expect: { timeout: 10_000 },
-  fullyParallel: true,
-  forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 4 : undefined,
-  reporter: [
-    ['list'],
-    ['allure-playwright', { environmentInfo }],
-    ['html', { open: 'never', outputFolder: 'playwright-report' }],
-  ],
-  use: {
-    baseURL: configForEnv.baseUrl,
-    headless: false,
-    viewport: { width: 1280, height: 720 },
-    actionTimeout: 20_000,
-    screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
-    trace: 'on-first-retry',
-  },
-  projects: [
-    { name: 'chromium', use: { browserName: 'chromium' } },
-    { name: 'firefox', use: { browserName: 'firefox' } },
-    { name: 'webkit', use: { browserName: 'webkit' } }
-  ],
-  globalSetup: require.resolve('./src/fixtures/global-setup.js'),
-  globalTeardown: require.resolve('./src/fixtures/global-teardown.js'),
+const { defineConfig } =require('@playwright/test');
+module.exports = defineConfig({ 
+testDir: './tests/ui',
+fullyParallel: true,
+timeout: 60000,
+expect: {timeout: 10000},
+retries:process.env.CI ? 2 : 1,
+workers:process.env.CI ? 6 : 3,
+reporter: [['list'],['html'],['allure-playwright']],
+use:{
+headless:false,
+/*launchOptions: {
+slowMo: 6000},*/
+trace:'retain-on-failure',
+screenshot:'only-on-failure',
+video:'retain-on-failure'
+},
+projects:[
+{name: 'QA',use: {baseURL: require('./config/environments/qa.json').baseUrl}},
+{name: 'UAT',use: {baseURL: require('./config/environments/uat.json').baseUrl}},
+{name: 'STAGING',use: {baseURL: require('./config/environments/staging.json').baseUrl}},
+{name:'chromium',testIgnore: ['**/api/**'],use:{browserName:'chromium'}},
+{name:'firefox',testIgnore: ['**/api/**'],use:{browserName:'firefox'}},
+{name:'webkit',testIgnore: ['**/api/**'],use:{browserName:'webkit'}}]
 });
-

@@ -1,0 +1,103 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: dashboard.spec.js >> @smoke Verify Dashboard Page
+- Location: tests\ui\dashboard.spec.js:6:1
+
+# Error details
+
+```
+Test timeout of 60000ms exceeded.
+```
+
+```
+Error: locator.waitFor: Target page, context or browser has been closed
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - generic [ref=e6]:
+    - img "company-branding" [ref=e8]
+    - generic [ref=e9]:
+      - heading "Login" [level=5] [ref=e10]
+      - generic [ref=e11]:
+        - generic [ref=e13]:
+          - paragraph [ref=e14]: "Username : Admin"
+          - paragraph [ref=e15]: "Password : admin123"
+        - generic [ref=e16]:
+          - generic [ref=e18]:
+            - generic [ref=e19]:
+              - generic [ref=e20]: 
+              - generic [ref=e21]: Username
+            - textbox "Username" [ref=e23]: Admin
+          - generic [ref=e25]:
+            - generic [ref=e26]:
+              - generic [ref=e27]: 
+              - generic [ref=e28]: Password
+            - textbox "Password" [active] [ref=e30]: admin123
+          - button "Login" [ref=e32] [cursor=pointer]
+          - paragraph [ref=e34] [cursor=pointer]: Forgot your password?
+      - generic [ref=e35]:
+        - generic [ref=e36]:
+          - link [ref=e37] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/orangehrm/mycompany/
+          - link [ref=e40] [cursor=pointer]:
+            - /url: https://www.facebook.com/OrangeHRM/
+          - link [ref=e43] [cursor=pointer]:
+            - /url: https://twitter.com/orangehrm?lang=en
+          - link [ref=e46] [cursor=pointer]:
+            - /url: https://www.youtube.com/c/OrangeHRMInc
+        - generic [ref=e49]:
+          - paragraph [ref=e50]: OrangeHRM OS 5.9
+          - paragraph [ref=e51]:
+            - text: © 2005 - 2026
+            - link "OrangeHRM, Inc" [ref=e52] [cursor=pointer]:
+              - /url: http://www.orangehrm.com
+            - text: . All rights reserved.
+  - img "orangehrm-logo" [ref=e54]
+```
+
+# Test source
+
+```ts
+  1  | class RetryLocator {
+  2  | static async click(locator, retries = 3) {
+  3  | for (let i = 1; i <= retries; i++) {
+  4  | try {
+> 5  | await locator.waitFor({
+     |               ^ Error: locator.waitFor: Target page, context or browser has been closed
+  6  | state: 'visible',
+  7  | timeout: 5000
+  8  | });
+  9  | await locator.click();
+  10 | return;
+  11 | } catch (error) {
+  12 | console.log(`Retry ${i}/${retries}`);
+  13 | if (i === retries) {
+  14 | throw error;
+  15 | }
+  16 | }
+  17 | }
+  18 | }
+  19 | static async fill(locator, value, retries = 3) {
+  20 | for (let i = 1; i <= retries; i++) {
+  21 | try {
+  22 | await locator.fill(value);
+  23 | return;
+  24 | } catch (error) {
+  25 | if (i === retries) {
+  26 | throw error;
+  27 | }
+  28 | }
+  29 | }
+  30 | }
+  31 | }
+  32 |  module.exports = RetryLocator;
+```
