@@ -1,3 +1,4 @@
+const apiLocator = require('../../src/utils/ApiRetryUtil');
 const { test, expect } =require('@playwright/test');
 const EmployeeApi =
 require('../../src/api/EmployeeApi');

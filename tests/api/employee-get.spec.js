@@ -1,7 +1,6 @@
-const { test, expect } =
-require('@playwright/test');
-const EmployeeApi =
-require('../../src/api/EmployeeApi');
+const apiLocator = require('../../src/utils/ApiRetryUtil');
+const { test, expect } = require('@playwright/test');
+const EmployeeApi = require('../../src/api/EmployeeApi');
 const env =
 require('../../src/utils/EnvironmentManager');
 test('@api @smoke Verify Employee GET',

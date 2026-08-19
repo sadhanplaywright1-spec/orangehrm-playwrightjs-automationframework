@@ -7,9 +7,7 @@ page.locator(
 '//span[text()="PIM"]'
 );
 this.employeeInfoHeader =
-page.locator(
-'h5:has-text("Employee Information")'
-);
+page.locator('h5:has-text("Employee Information")');
 }
 async navigateToEmployeeList() {
 await this.pimMenu.click();

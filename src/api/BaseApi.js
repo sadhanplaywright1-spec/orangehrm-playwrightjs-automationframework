@@ -1,3 +1,4 @@
+const apiLocator = require('../../src/utils/ApiRetryUtil');
 require('dotenv').config();
 const { request } =
 require('@playwright/test');
