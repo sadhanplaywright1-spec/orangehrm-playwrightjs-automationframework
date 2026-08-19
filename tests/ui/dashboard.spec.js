@@ -1,8 +1,8 @@
+const apiLocator = require('../../src/utils/RetryLocator');
 const { test, expect } = require('@playwright/test');
 const LoginPage =
-require('../../src/pages/LoginPage');
-const env =
-require('../../config/environments/qa.json');
+require('../../src/pages/LoginPage');                                                              
+const env =require('../../config/environments/qa.json');
 test('@smoke Verify Dashboard Page', async ({ page }) => {
 const loginPage =
 new LoginPage(page);

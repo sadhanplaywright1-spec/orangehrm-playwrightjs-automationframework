@@ -13,7 +13,15 @@
         "test:firefox": "npx playwright test --project=firefox",
         "test:webkit": "npx playwright test --project=webkit",
         "allure:generate": "allure generate allure-results --clean",
-        "allure:open": "allure open"
+        "allure:open": "allure open",
+        "ui": "playwright test --config=playwright.ui.config.js",
+        "api": "playwright test --config=playwright.api.config.js",
+        "ui:qa": "playwright test --config=playwright.ui.config.js --project=QA",
+        "ui:uat": "playwright test --config=playwright.ui.config.js --project=UAT",
+        "ui:staging": "playwright test --config=playwright.ui.config.js --project=STAGING",
+        "api:qa": "playwright test --config=playwright.api.config.js --project=QA",
+        "api:uat": "playwright test --config=playwright.api.config.js --project=UAT",
+        "api:staging": "playwright test --config=playwright.api.config.js --project=STAGING"
     },
     "keywords": [],
     "author": "",

@@ -1,3 +1,4 @@
+const apiLocator = require('../../src/utils/RetryLocator');
 const { test } = require('@playwright/test');
 const LoginPage = require('../../src/pages/LoginPage');
 const PimPage = require('../../src/pages/PimPage');

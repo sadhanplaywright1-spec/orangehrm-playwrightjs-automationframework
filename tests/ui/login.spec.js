@@ -1,3 +1,4 @@
+const apiLocator = require('../../src/utils/RetryLocator');
 const {test,expect} = require('../../src/fixtures/CustomFixtures');
 const LoginPage =require('../../src/pages/LoginPage');
 const DashboardPage =require('../../src/pages/DashboardPage');
