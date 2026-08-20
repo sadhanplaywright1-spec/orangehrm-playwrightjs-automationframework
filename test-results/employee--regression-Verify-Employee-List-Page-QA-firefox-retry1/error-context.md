@@ -16,7 +16,7 @@ Test timeout of 60000ms exceeded.
 ```
 
 ```
-Tearing down "context" exceeded the test timeout of 60000ms.
+Error: locator.waitFor: Target page, context or browser has been closed
 ```
 
 # Page snapshot
@@ -62,4 +62,42 @@ Tearing down "context" exceeded the test timeout of 60000ms.
               - /url: http://www.orangehrm.com
             - text: . All rights reserved.
   - img "orangehrm-logo" [ref=e54]
+```
+
+# Test source
+
+```ts
+  1  | class RetryLocator {
+  2  | static async click(locator, retries = 3) {
+  3  | for (let i = 1; i <= retries; i++) {
+  4  | try {
+> 5  | await locator.waitFor({
+     |               ^ Error: locator.waitFor: Target page, context or browser has been closed
+  6  | state: 'visible',
+  7  | timeout: 5000
+  8  | });
+  9  | await locator.click();
+  10 | return;
+  11 | } catch (error) {
+  12 | console.log(`Retry ${i}/${retries}`);
+  13 | if (i === retries) {
+  14 | throw error;
+  15 | }
+  16 | }
+  17 | }
+  18 | }
+  19 | static async fill(locator, value, retries = 3) {
+  20 | for (let i = 1; i <= retries; i++) {
+  21 | try {
+  22 | await locator.fill(value);
+  23 | return;
+  24 | } catch (error) {
+  25 | if (i === retries) {
+  26 | throw error;
+  27 | }
+  28 | }
+  29 | }
+  30 | }
+  31 | }
+  32 |  module.exports = RetryLocator;
 ```
