@@ -1,0 +1,6 @@
+REQUEST ==> GET https://opensource-demo.orangehrmlive.com/web/dist/js/chunk-vendors.js?v=1783336755185
+REQUEST ==> GET https://opensource-demo.orangehrmlive.com/web/dist/js/app.js?v=1783336755185
+RESPONSE ==> 200 https://opensource-demo.orangehrmlive.com/web/dist/js/chunk-vendors.js?v=1783336755185
+RESPONSE ==> 200 https://opensource-demo.orangehrmlive.com/web/dist/js/app.js?v=1783336755185
+REQUEST ==> GET https://opensource-demo.orangehrmlive.com/web/dist/favicon.ico?v=1783336755185
+RESPONSE ==> 200 https://opensource-demo.orangehrmlive.com/web/dist/favicon.ico?v=1783336755185

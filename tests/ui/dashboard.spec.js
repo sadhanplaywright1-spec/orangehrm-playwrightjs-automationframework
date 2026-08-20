@@ -1,5 +1,5 @@
 const apiLocator = require('../../src/utils/RetryLocator');
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require('../../src/fixtures/CustomFixtures');
 const LoginPage =
 require('../../src/pages/LoginPage');                                                              
 const env =require('../../config/environments/qa.json');

@@ -1,42 +1,85 @@
 const base = require('@playwright/test');
-const test = base.test.extend({});
-test.afterEach(async ({ page }, testInfo) => {
-if (testInfo.status !== testInfo.expectedStatus) {
-// Screenshot
+const fs = require('fs');
+exports.test = base.test.extend({
+networkLogs: async ({ page }, use) => {
+const logs = [];
+page.on('request', req => {
+logs.push(
+`REQUEST ==> ${req.method()} ${req.url()}`
+);
+});
+page.on('response', async res => {
+logs.push(
+`RESPONSE ==> ${res.status()} ${res.url()}`
+);
+});
+await use(logs);
+},
+consoleLogs: async ({ page }, use) => {
+const logs = [];
+page.on('console', msg => {
+logs.push(
+`[${msg.type()}] ${msg.text()}`
+);
+});
+await use(logs);
+}
+});
+exports.expect = base.expect;
+exports.test.afterEach(async ({
+page,
+networkLogs,
+consoleLogs
+}, testInfo) => {
 const screenshotPath =
-testInfo.outputPath('failure-screenshot.png');
+`test-results/${Date.now()}-${testInfo.title}.png`;
 await page.screenshot({
 path: screenshotPath,
 fullPage: true
 });
 await testInfo.attach(
-'Failure Screenshot',
+'Screenshot',
 {
 path: screenshotPath,
 contentType: 'image/png'
 }
 );
-console.log(`Screenshot attached: ${screenshotPath}`);
+await testInfo.attach(
+'Browser Console Logs',
+{
+body: Buffer.from(consoleLogs.join('\n')),
+contentType: 'text/plain'
 }
-// Video
-const video = page.video();
-if (video) {
-try {
-const videoPath = await video.path();
+);
+await testInfo.attach(
+'Network Logs',
+{
+body: Buffer.from(networkLogs.join('\n')),
+contentType: 'text/plain'
+}
+);
+const video = testInfo.attachments.find(
+a => a.name === 'video'
+);
+if (video?.path) {
 await testInfo.attach(
 'Execution Video',
 {
-path: videoPath,
+path: video.path,
 contentType: 'video/webm'
 }
 );
-console.log(`Video attached: ${videoPath}`);
-} catch (error) {
-console.log('Video attachment skipped');
 }
+const trace = testInfo.attachments.find(
+a => a.name === 'trace'
+);
+if (trace?.path) {
+await testInfo.attach(
+'Playwright Trace',
+{
+path: trace.path,
+contentType: 'application/zip'
+}
+);
 }
 });
-module.exports = {
-test,
-expect: base.expect
-};

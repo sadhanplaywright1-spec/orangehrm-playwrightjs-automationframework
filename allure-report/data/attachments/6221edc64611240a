@@ -1,0 +1,49 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: login.spec.js >> @regression Verify Employee List Page
+- Location: tests\ui\login.spec.js:6:1
+
+# Error details
+
+```
+Test timeout of 60000ms exceeded.
+```
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator: locator('h6')
+Expected: visible
+Timeout: 10000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" with timeout 10000ms
+  - waiting for locator('h6')
+
+```
+
+# Test source
+
+```ts
+  1  | const apiLocator = require('../../src/utils/RetryLocator');
+  2  | const {test,expect} = require('../../src/fixtures/CustomFixtures');
+  3  | const LoginPage =require('../../src/pages/LoginPage');
+  4  | const DashboardPage =require('../../src/pages/DashboardPage');
+  5  | const env =require('../../src/utils/EnvironmentManager');
+  6  | test('@regression Verify Employee List Page', async ({ page }) =>{
+  7  | await page.goto(env.baseURL);
+  8  | const loginPage =new LoginPage(page);
+  9  | await loginPage.login(env.username,env.password)
+> 10 | await expect(page.locator('h6')).toBeVisible();
+     |                                  ^ Error: expect(locator).toBeVisible() failed
+  11 | const dashboardPage =new DashboardPage(page);
+  12 | await expect(dashboardPage.dashboardHeader).toBeVisible();
+  13 | });
+```

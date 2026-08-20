@@ -1,0 +1,6 @@
+[error] [JavaScript Error: "Cookie “__Secure-YEC” has been rejected because it is in a cross-site context and its “SameSite” is “Lax” or “Strict”." {file: "https://www.youtube.com/embed/" line: 0}]
+[warning] [JavaScript Warning: "Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content." {file: "https://www.youtube.com/embed/" line: 0}]
+[error] [JavaScript Error: "Cookie “__Secure-YEC” has been rejected because it is in a cross-site context and its “SameSite” is “Lax” or “Strict”." {file: "https://www.youtube.com/embed/" line: 0}]
+[error] [JavaScript Error: "Cookie “__Secure-YEC” has been rejected because it is in a cross-site context and its “SameSite” is “Lax” or “Strict”." {file: "https://www.youtube.com/embed/" line: 0}]
+[error] [JavaScript Error: "Cookie “__Secure-YEC” has been rejected because it is in a cross-site context and its “SameSite” is “Lax” or “Strict”." {file: "https://www.youtube.com/embed/" line: 0}]
+[warning] [JavaScript Warning: "Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content." {file: "https://www.youtube.com/embed/" line: 0}]

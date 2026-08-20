@@ -1,0 +1,4 @@
+[warning] [JavaScript Warning: "A resource is blocked by OpaqueResponseBlocking, please check browser console for details." {file: "https://static.doubleclick.net/instream/ad_status.js" line: 0}]
+[warning] [JavaScript Warning: "Loading failed for the <script> with source “https://static.doubleclick.net/instream/ad_status.js”." {file: "https://www.youtube.com/embed/" line: 1}]
+[warning] [JavaScript Warning: "A resource is blocked by OpaqueResponseBlocking, please check browser console for details." {file: "https://static.doubleclick.net/instream/ad_status.js" line: 0}]
+[warning] [JavaScript Warning: "Loading failed for the <script> with source “https://static.doubleclick.net/instream/ad_status.js”." {file: "https://www.youtube.com/embed/" line: 1}]

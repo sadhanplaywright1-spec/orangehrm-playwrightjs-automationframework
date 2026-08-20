@@ -1,4 +1,3 @@
-const { expect } = require('../fixtures/CustomFixtures');
 const BasePage = require('./BasePage');
 class DashboardPage extends BasePage {
 constructor(page) {

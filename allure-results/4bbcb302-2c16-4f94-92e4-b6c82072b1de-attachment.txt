@@ -1,0 +1,1 @@
+REQUEST ==> GET https://opensource-demo.orangehrmlive.com/web/index.php/core/i18n/messages

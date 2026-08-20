@@ -1,4 +1,20 @@
 const { defineConfig } = require('@playwright/test');
+const environments = {
+QA: require('./config/environments/qa.json').baseUrl,
+UAT: require('./config/environments/uat.json').baseUrl,
+STAGING: require('./config/environments/staging.json').baseUrl
+};
+const browsers = ['chromium', 'firefox', 'webkit'];
+const projects = Object.entries(environments).flatMap(
+([env, baseURL]) =>
+browsers.map(browser => ({
+name: `${env}-${browser}`,
+use: {
+browserName: browser,
+baseURL
+}
+}))
+);
 module.exports = defineConfig({
 testDir: './tests/ui',
 fullyParallel: true,
@@ -7,50 +23,28 @@ expect: {
 timeout: 10000
 },
 retries: process.env.CI ? 2 : 1,
-workers: process.env.CI ? 6 : 3,
+workers: process.env.CI ? 12 : 9,
+globalSetup: require.resolve('./config/global-setup'),
+globalTeardown: require.resolve('./config/global-teardown'),
 reporter: [
 ['list'],
-['html', {
+[
+'html',
+{
 outputFolder: 'playwright-report'
-}],
+}
+],
 ['allure-playwright']
 ],
 use: {
-headless: false,
-trace: 'retain-on-failure',
-screenshot: 'only-on-failure',
-video: 'retain-on-failure'
-},
-/*use: {
 headless: process.env.CI ? true : false,
-trace: 'retain-on-failure',
-screenshot: 'only-on-failure',
-video: 'retain-on-failure',
+screenshot: 'on',
+video: 'on',
+trace: 'on',
 viewport: {
 width: 1920,
 height: 1080
-}*/
-projects: [
-{
-name: 'QA',
-use: {
-browserName: 'chromium',
-baseURL: require('./config/environments/qa.json').baseUrl
 }
 },
-{
-name: 'UAT',
-use: {
-browserName: 'chromium',
-baseURL: require('./config/environments/uat.json').baseUrl
-}
-},
-{
-name: 'STAGING',
-use: {
-browserName: 'chromium',
-baseURL: require('./config/environments/staging.json').baseUrl
-}
-}
-]
+projects
 });
