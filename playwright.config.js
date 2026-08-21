@@ -37,8 +37,7 @@ outputFolder: 'playwright-report'
 ['allure-playwright']
 ],
 use: {
-headless: true,
-//headless: process.env.CI ? true : false,
+headless: process.env.CI ? true : false,
 screenshot: 'on',
 video: 'on',
 trace: 'on',

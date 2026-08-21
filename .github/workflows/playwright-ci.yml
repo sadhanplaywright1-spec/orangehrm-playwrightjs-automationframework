@@ -14,7 +14,7 @@ jobs:
     name: UI - ${{ matrix.project }}
     runs-on: windows-latest
     env:
-    headless: process.env.CI ? true:false
+    CI: true
     strategy:
       fail-fast: false
       matrix:
@@ -35,7 +35,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-        node-version: 24
+          node-version: 24
 
       - name: Install Dependencies
         run: npm ci
@@ -44,8 +44,8 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run UI Tests
-        run: >
-          npx playwright test
+        run: 
+            npx playwright test
           --config=playwright.ui.config.js
           --project="${{ matrix.project }}"
 
