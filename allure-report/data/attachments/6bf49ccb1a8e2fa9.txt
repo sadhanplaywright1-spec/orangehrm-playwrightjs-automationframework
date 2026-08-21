@@ -1,0 +1,3 @@
+RESPONSE ==> 200 https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/pim/employees?limit=50&offset=0&model=detailed&includeEmployees=onlyCurrent&sortField=employee.firstName&sortOrder=ASC
+RESPONSE ==> 200 https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/admin/employment-statuses?limit=0
+RESPONSE ==> 200 https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/admin/job-titles?limit=0

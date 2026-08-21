@@ -12,7 +12,8 @@ jobs:
   ui-tests:
     name: UI - ${{ matrix.project }}
     runs-on: windows-latest
-    env: FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true
+    env:
+    FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     CI: true
     strategy:
       fail-fast: false

@@ -1,24 +1,7 @@
 node_modules
-<<<<<<< Updated upstream
 ExcelUtil.js
 JsonSerializer.js
 ExcelReader.js
 testDataManager.js
 employeeData.json
 EmployeeData.xlsx
-=======
-test-results
-playwright-report
-blob-report
-playwright
-.cache
-playwright
-.auth
-allure-report
-allure-results 
-project-presentation-pdf-friendly.md
-project-presentation.md
-docker-compose.yml
-Dockerfile
-orangehrm-playwrightjs-framework
->>>>>>> Stashed changes

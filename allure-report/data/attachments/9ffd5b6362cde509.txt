@@ -1,0 +1,4 @@
+RESPONSE ==> 200 https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPhoto/empNumber/878
+RESPONSE ==> 200 https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPhoto/empNumber/11
+RESPONSE ==> 200 https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPhoto/empNumber/22
+RESPONSE ==> 200 https://opensource-demo.orangehrmlive.com/web/index.php/buzz/photo/9
