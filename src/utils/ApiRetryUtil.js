@@ -1,24 +1,16 @@
 class ApiRetryUtil {
-static async execute(
-apiCall,
-retries = 3
-){
-let error;
-for(
-let i=1;
-i<=retries;
-i++
-){
-try{
+static async execute(apiCall, maxRetries = 3) {
+let attempt = 0;
+while (attempt < maxRetries) {
+try {
 return await apiCall();
-}catch(ex){
-error = ex;
-console.log(
-`Retry ${i}`
-);
-}
-}
+} catch (error) {
+attempt++;
+if (attempt === maxRetries) {
 throw error;
+}
+}
+}
 }
 }
 module.exports = ApiRetryUtil;

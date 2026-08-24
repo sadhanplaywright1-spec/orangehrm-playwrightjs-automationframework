@@ -1,0 +1,7 @@
+[error] TypeError: Cannot read properties of undefined (reading '$el')
+    at h (https://opensource-demo.orangehrmlive.com/web/dist/js/chunk-vendors.js?v=1783336755185:1:530312)
+    at On (https://opensource-demo.orangehrmlive.com/web/dist/js/chunk-vendors.js?v=1783336755185:121:25848)
+    at Mn (https://opensource-demo.orangehrmlive.com/web/dist/js/chunk-vendors.js?v=1783336755185:121:25926)
+    at x (https://opensource-demo.orangehrmlive.com/web/dist/js/chunk-vendors.js?v=1783336755185:121:37070)
+    at On (https://opensource-demo.orangehrmlive.com/web/dist/js/chunk-vendors.js?v=1783336755185:121:25856)
+    at Qn (https://opensource-demo.orangehrmlive.com/web/dist/js/chunk-vendors.js?v=1783336755185:121:27578)

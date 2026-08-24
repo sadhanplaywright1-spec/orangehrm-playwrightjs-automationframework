@@ -1,0 +1,1 @@
+RESPONSE ==> 200 https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPhoto/empNumber/198

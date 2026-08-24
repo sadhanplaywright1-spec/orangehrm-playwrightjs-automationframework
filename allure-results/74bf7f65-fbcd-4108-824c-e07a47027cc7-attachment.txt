@@ -1,0 +1,6 @@
+[2026-08-24 13:17:50] INFO: Starting Dashboard verification test
+[2026-08-24 13:17:50] INFO: Navigating to: https://opensource-demo.orangehrmlive.com
+[2026-08-24 13:17:55] INFO: Logging into OrangeHRM
+[2026-08-24 13:17:57] INFO: Waiting for Dashboard page to load
+[2026-08-24 13:17:57] INFO: Validating Dashboard heading
+[2026-08-24 13:17:57] INFO: Dashboard verification completed successfully
