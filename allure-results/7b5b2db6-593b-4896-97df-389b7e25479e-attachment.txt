@@ -1,2 +1,0 @@
-RESPONSE ==> 200 https://opensource-demo.orangehrmlive.com/web/dist/fonts/nunito-sans-v6-latin-ext_latin-italic.woff2
-RESPONSE ==> 200 https://opensource-demo.orangehrmlive.com/web/images/orangehrm-logo.png?v=1783336755185

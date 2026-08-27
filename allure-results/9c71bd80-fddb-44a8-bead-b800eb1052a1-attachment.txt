@@ -1,6 +1,0 @@
-[2026-08-24 13:19:52] INFO: Starting Employee List verification test
-[2026-08-24 13:19:52] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
-[2026-08-24 13:19:59] INFO: Logging into application
-[2026-08-24 13:20:09] INFO: Verifying dashboard header visibility
-[2026-08-24 13:20:13] INFO: Validating Dashboard page
-[2026-08-24 13:20:13] INFO: Employee List verification completed successfully

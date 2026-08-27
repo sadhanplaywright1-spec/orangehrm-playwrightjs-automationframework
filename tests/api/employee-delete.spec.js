@@ -1,22 +1,22 @@
 const { test, expect } = require('@playwright/test');
-const ApiLogger = require('../../src/utils/ApiLogger');
 const EmployeeApi = require('../../src/api/EmployeeApi');
+const ApiLogger = require('../../src/utils/ApiLogger');
 const ApiRetry = require('../../src/utils/ApiRetryUtil');
-test('@api @regression Verify Employee POST', async ({}, testInfo) => {
-const api = new EmployeeApi(); 
-const payload = {
-name: 'Sadhan',
-job: 'QA Lead'
-};
+const env = require('../../src/utils/EnvironmentManager');
+test('@api @regression Verify Employee DELETE',
+async ({}, testInfo) => {
+const api = new EmployeeApi();
 const startTime = Date.now();
 const response = await ApiRetry.execute(async () => {
-return await api.deleteEmployee('https://reqres.in/api/users/2');
+return await api.deleteEmployee(
+`${env.apiBaseUrl}/users/2`
+);
 });
 await ApiLogger.log(
 testInfo,
 'DELETE',
 '/users/2',
-payload,
+{},
 response,
 startTime
 );

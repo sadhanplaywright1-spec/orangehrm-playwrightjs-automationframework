@@ -1,0 +1,10 @@
+{
+"createEmployee": {
+"name": "Sadhan",
+"job": "QA"
+},
+"updateEmployee": {
+"name": "Sadhan",
+"job": "Senior QA"
+}
+}

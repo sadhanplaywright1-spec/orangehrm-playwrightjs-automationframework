@@ -1,2 +1,0 @@
-RESPONSE ==> 200 https://opensource-demo.orangehrmlive.com/web/images/dashboard_empty_widget_watermark.png
-RESPONSE ==> 200 https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/buzz/feed?limit=5&offset=0&sortOrder=DESC&sortField=share.createdAtUtc

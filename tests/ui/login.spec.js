@@ -14,17 +14,28 @@ await loginPage.login(
 env.username,
 env.password
 );
-logger.info('Verifying dashboard header visibility');
-await expect(page.locator('h6')).toBeVisible();
+// Wait for Dashboard page after successful login
+await page.waitForURL('**/dashboard/**', {
+timeout: 30000
+});
+logger.info('Verifying dashboard page loaded');
 const dashboardPage = new DashboardPage(page);
 logger.info('Validating Dashboard page');
+// Use DashboardPage method
+await dashboardPage.verifyDashboard();
+// Additional validation
 await expect(
 dashboardPage.dashboardHeader
-).toBeVisible();
+).toBeVisible({
+timeout: 10000
+});
 logger.info('Employee List verification completed successfully');
 } catch (error) {
 logger.error(`Employee List test failed: ${error.message}`);
+await page.screenshot({
+path: 'login-failure.png',
+fullPage: true
+});
 throw error;
 }
 });
-

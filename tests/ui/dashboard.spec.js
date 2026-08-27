@@ -20,4 +20,3 @@ page.locator('h6.oxd-topbar-header-breadcrumb-module')
 ).toHaveText('Dashboard');
 logger.info('Dashboard verification completed successfully');
 });
-await expect(page.locator('.oxd-topbar-header-title')).toContainText('Dashboard');

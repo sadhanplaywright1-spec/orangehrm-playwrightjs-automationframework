@@ -1,4 +1,0 @@
-[2026-08-24 13:19:58] INFO: Starting Employee List verification test
-[2026-08-24 13:19:58] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
-[2026-08-24 13:20:32] INFO: Logging into application
-[2026-08-24 13:21:01] ERROR: Employee List test failed: locator.fill: Target page, context or browser has been closed

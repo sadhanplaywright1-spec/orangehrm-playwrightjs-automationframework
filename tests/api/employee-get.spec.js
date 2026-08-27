@@ -1,15 +1,16 @@
-const ApiLogger = require('../../src/utils/ApiLogger');
 const { test, expect } = require('@playwright/test');
 const EmployeeApi = require('../../src/api/EmployeeApi');
-const env = require('../../src/utils/EnvironmentManager');
+const ApiLogger = require('../../src/utils/ApiLogger');
 const ApiRetry = require('../../src/utils/ApiRetryUtil');
+const env = require('../../src/utils/EnvironmentManager');
 test('@api @smoke Verify Employee GET',
 async ({}, testInfo) => {
 const api = new EmployeeApi();
 const startTime = Date.now();
-const response = await ApiRetry.execute(async () => {  
+const response = await ApiRetry.execute(async () => {
 return await api.getEmployee(
-`${env.apiBaseUrl}/users/2`)
+`${env.apiBaseUrl}/users/2`
+);
 });
 await ApiLogger.log(
 testInfo,

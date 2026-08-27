@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { defineConfig } = require('@playwright/test');
 module.exports = defineConfig({
 testDir: './tests/api',
@@ -13,6 +14,7 @@ outputFolder: 'api-playwright-report'
 ['allure-playwright']
 ],
 use: {
+    baseURL: process.env.BASE_URL,
 trace: 'retain-on-failure'
 },
 projects: [
@@ -35,7 +37,6 @@ name: 'STAGING',
 use: {
 apiBaseUrl:
 require('./config/environments/staging.json').apiBaseUrl
-}
-}
+}}
 ]
 });

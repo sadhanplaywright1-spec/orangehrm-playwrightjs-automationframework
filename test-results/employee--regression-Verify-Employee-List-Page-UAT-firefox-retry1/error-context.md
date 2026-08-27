@@ -1,0 +1,274 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: employee.spec.js >> @regression Verify Employee List Page
+- Location: tests\ui\employee.spec.js:6:1
+
+# Error details
+
+```
+Test timeout of 60000ms exceeded.
+```
+
+```
+Error: page.waitForURL: Test timeout of 60000ms exceeded.
+=========================== logs ===========================
+waiting for navigation to "**/pim/viewEmployeeList" until "load"
+============================================================
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=f1e3]:
+  - generic:
+    - complementary [ref=f1e4]:
+      - navigation "Sidepanel" [ref=f1e5]:
+        - generic [ref=f1e6]:
+          - link [ref=f1e7] [cursor=pointer]:
+            - /url: https://www.orangehrm.com/
+            - img "client brand banner" [ref=f1e9]
+          - text: 
+        - generic [ref=f1e10]:
+          - generic [ref=f1e11]:
+            - generic [ref=f1e12]:
+              - textbox "Search" [ref=f1e15]
+              - button "" [ref=f1e16] [cursor=pointer]
+            - separator [ref=f1e18]
+          - list [ref=f1e19]:
+            - listitem [ref=f1e20]:
+              - link "Admin" [ref=f1e21] [cursor=pointer]:
+                - /url: /web/index.php/admin/viewAdminModule
+            - listitem [ref=f1e25]:
+              - link "PIM" [active] [ref=f1e26] [cursor=pointer]:
+                - /url: /web/index.php/pim/viewPimModule
+            - listitem [ref=f1e41]:
+              - link "Leave" [ref=f1e42] [cursor=pointer]:
+                - /url: /web/index.php/leave/viewLeaveModule
+            - listitem [ref=f1e46]:
+              - link "Time" [ref=f1e47] [cursor=pointer]:
+                - /url: /web/index.php/time/viewTimeModule
+            - listitem [ref=f1e54]:
+              - link "Recruitment" [ref=f1e55] [cursor=pointer]:
+                - /url: /web/index.php/recruitment/viewRecruitmentModule
+            - listitem [ref=f1e62]:
+              - link "My Info" [ref=f1e63] [cursor=pointer]:
+                - /url: /web/index.php/pim/viewMyDetails
+            - listitem [ref=f1e70]:
+              - link "Performance" [ref=f1e71] [cursor=pointer]:
+                - /url: /web/index.php/performance/viewPerformanceModule
+            - listitem [ref=f1e80]:
+              - link "Dashboard" [ref=f1e81] [cursor=pointer]:
+                - /url: /web/index.php/dashboard/index
+            - listitem [ref=f1e85]:
+              - link "Directory" [ref=f1e86] [cursor=pointer]:
+                - /url: /web/index.php/directory/viewDirectory
+            - listitem [ref=f1e90]:
+              - link "Maintenance" [ref=f1e91] [cursor=pointer]:
+                - /url: /web/index.php/maintenance/viewMaintenanceModule
+            - listitem [ref=f1e96]:
+              - link "Claim" [ref=f1e97] [cursor=pointer]:
+                - /url: /web/index.php/claim/viewClaimModule
+            - listitem [ref=f1e105]:
+              - link "Buzz" [ref=f1e106] [cursor=pointer]:
+                - /url: /web/index.php/buzz/viewBuzz
+    - banner [ref=f1e110]:
+      - generic [ref=f1e111]:
+        - generic [ref=f1e112]:
+          - text: 
+          - heading "Dashboard" [level=6] [ref=f1e114]
+        - link [ref=f1e116]:
+          - /url: https://orangehrm.com/open-source/upgrade-to-advanced
+          - button "Upgrade" [ref=f1e117] [cursor=pointer]
+        - list [ref=f1e123]:
+          - listitem [ref=f1e124]:
+            - generic [ref=f1e125] [cursor=pointer]:
+              - img "profile picture" [ref=f1e126]
+              - paragraph [ref=f1e127]: manda user
+              - generic [ref=f1e128]: 
+      - navigation "Topbar Menu" [ref=f1e130]:
+        - list [ref=f1e131]:
+          - button "" [ref=f1e133] [cursor=pointer]
+  - generic [ref=f1e135]:
+    - generic [ref=f1e137]:
+      - generic [ref=f1e139]:
+        - generic [ref=f1e141]:
+          - generic [ref=f1e142]: 
+          - paragraph [ref=f1e143]: Time at Work
+        - separator [ref=f1e144]
+        - generic [ref=f1e146]:
+          - generic [ref=f1e147]:
+            - img "profile picture" [ref=f1e149]
+            - generic [ref=f1e150]:
+              - paragraph [ref=f1e151]: Punched Out
+              - paragraph [ref=f1e152]: "Punched Out: Mar 29th at 01:19 PM (GMT 7)"
+          - generic [ref=f1e153]:
+            - generic [ref=f1e154]: 0h 0m Today
+            - button "" [ref=f1e155] [cursor=pointer]
+          - separator [ref=f1e157]
+          - generic [ref=f1e158]:
+            - generic [ref=f1e159]:
+              - paragraph [ref=f1e160]: This Week
+              - paragraph [ref=f1e161]: Aug 24 - Aug 30
+            - generic [ref=f1e162]:
+              - generic [ref=f1e163]: 
+              - paragraph [ref=f1e164]: 0h 0m
+      - generic [ref=f1e168]:
+        - generic [ref=f1e170]:
+          - generic [ref=f1e171]: 
+          - paragraph [ref=f1e172]: My Actions
+        - separator [ref=f1e173]
+        - generic [ref=f1e175]:
+          - generic [ref=f1e176]:
+            - button [ref=f1e177] [cursor=pointer]
+            - paragraph [ref=f1e183] [cursor=pointer]: (1) Pending Self Review
+          - generic [ref=f1e184]:
+            - button [ref=f1e185] [cursor=pointer]
+            - paragraph [ref=f1e194] [cursor=pointer]: (1) Candidate to Interview
+      - generic [ref=f1e196]:
+        - generic [ref=f1e198]:
+          - generic [ref=f1e199]: 
+          - paragraph [ref=f1e200]: Quick Launch
+        - separator [ref=f1e201]
+        - generic [ref=f1e203]:
+          - generic [ref=f1e204]:
+            - button "Assign Leave" [ref=f1e205] [cursor=pointer]
+            - generic "Assign Leave" [ref=f1e208]:
+              - paragraph [ref=f1e209]: Assign Leave
+          - generic [ref=f1e210]:
+            - button "Leave List" [ref=f1e211] [cursor=pointer]
+            - generic "Leave List" [ref=f1e218]:
+              - paragraph [ref=f1e219]: Leave List
+          - generic [ref=f1e220]:
+            - button "Timesheets" [ref=f1e221] [cursor=pointer]
+            - generic "Timesheets" [ref=f1e227]:
+              - paragraph [ref=f1e228]: Timesheets
+          - generic [ref=f1e229]:
+            - button "Apply Leave" [ref=f1e230] [cursor=pointer]
+            - generic "Apply Leave" [ref=f1e233]:
+              - paragraph [ref=f1e234]: Apply Leave
+          - generic [ref=f1e235]:
+            - button "My Leave" [ref=f1e236] [cursor=pointer]
+            - generic "My Leave" [ref=f1e241]:
+              - paragraph [ref=f1e242]: My Leave
+          - generic [ref=f1e243]:
+            - button "My Timesheet" [ref=f1e244] [cursor=pointer]
+            - generic "My Timesheet" [ref=f1e247]:
+              - paragraph [ref=f1e248]: My Timesheet
+      - generic [ref=f1e250]:
+        - generic [ref=f1e252]:
+          - generic [ref=f1e253]: 
+          - paragraph [ref=f1e254]: Buzz Latest Posts
+        - separator [ref=f1e255]
+        - generic [ref=f1e257]:
+          - generic [ref=f1e258]:
+            - generic [ref=f1e259] [cursor=pointer]:
+              - img "profile picture" [ref=f1e261]
+              - generic [ref=f1e262]:
+                - paragraph [ref=f1e263]: manda akhil user
+                - paragraph [ref=f1e264]: 2020-08-10 09:08 AM
+            - separator [ref=f1e265]
+            - paragraph [ref=f1e266]: "Hi All; Linda has been blessed with a baby boy! Linda: With love, we welcome your dear new baby to this world. Congratulations!"
+          - generic [ref=f1e267]:
+            - generic [ref=f1e268] [cursor=pointer]:
+              - img "profile picture" [ref=f1e270]
+              - generic [ref=f1e271]:
+                - paragraph [ref=f1e272]: Sania Shaheen
+                - paragraph [ref=f1e273]: 2020-08-10 09:08 AM
+            - separator [ref=f1e274]
+            - paragraph [ref=f1e275]: "World Championship: What makes the perfect snooker player? Mark Selby: Robertson has one of the best techniques in the game. It is very, very straight and he fully commits to every single shot he plays. John Higgins: Every shot is repetitive. He always keeps the same technique and cues through the ball bang straight. Barry Hawkins: Robertson is textbook with his grip and has a ramrod solid cue action, delivering it in a straight line. Honourable mentions: Shaun Murphy, Ding Junhui, Jack Lisowski."
+          - generic [ref=f1e276]:
+            - generic [ref=f1e277] [cursor=pointer]:
+              - img "profile picture" [ref=f1e279]
+              - generic [ref=f1e280]:
+                - paragraph [ref=f1e281]: Rebecca Harmony
+                - paragraph [ref=f1e282]: 2020-08-10 09:04 AM
+            - separator [ref=f1e283]
+            - paragraph [ref=f1e284]: Throwback Thursdays!!
+          - generic [ref=f1e285]:
+            - generic [ref=f1e286] [cursor=pointer]:
+              - img "profile picture" [ref=f1e288]
+              - generic [ref=f1e289]:
+                - paragraph [ref=f1e290]: Russel Hamilton
+                - paragraph [ref=f1e291]: 2020-08-10 09:03 AM
+            - separator [ref=f1e292]
+            - paragraph [ref=f1e293]: Live SIMPLY Dream BIG Be GREATFULL Give LOVE Laugh LOT.......
+      - generic [ref=f1e295]:
+        - generic [ref=f1e296]:
+          - paragraph [ref=f1e301]: Employees on Leave Today
+          - generic [ref=f1e302] [cursor=pointer]: 
+        - separator [ref=f1e303]
+        - generic [ref=f1e305]:
+          - img "No Content" [ref=f1e306]
+          - paragraph [ref=f1e307]: No Employees are on Leave Today
+      - generic [ref=f1e309]:
+        - generic [ref=f1e311]:
+          - generic [ref=f1e312]: 
+          - paragraph [ref=f1e313]: Employee Distribution by Sub Unit
+        - separator [ref=f1e314]
+        - list [ref=f1e319]:
+          - listitem [ref=f1e320] [cursor=pointer]:
+            - generic "Engineering" [ref=f1e322]
+          - listitem [ref=f1e323] [cursor=pointer]:
+            - generic "Human Resources" [ref=f1e325]
+          - listitem [ref=f1e326] [cursor=pointer]:
+            - generic "Administration" [ref=f1e328]
+          - listitem [ref=f1e329] [cursor=pointer]:
+            - generic "Client Services" [ref=f1e331]
+          - listitem [ref=f1e332] [cursor=pointer]:
+            - generic "Unassigned" [ref=f1e334]
+      - generic [ref=f1e336]:
+        - generic [ref=f1e338]:
+          - generic [ref=f1e339]: 
+          - paragraph [ref=f1e340]: Employee Distribution by Location
+        - separator [ref=f1e341]
+        - list [ref=f1e346]:
+          - listitem [ref=f1e347] [cursor=pointer]:
+            - generic "Texas R&D" [ref=f1e349]
+          - listitem [ref=f1e350] [cursor=pointer]:
+            - generic "New York Sales Office" [ref=f1e352]
+          - listitem [ref=f1e353] [cursor=pointer]:
+            - generic "Unassigned" [ref=f1e355]
+    - generic [ref=f1e356]:
+      - paragraph [ref=f1e357]: OrangeHRM OS 5.9
+      - paragraph [ref=f1e358]:
+        - text: © 2005 - 2026
+        - link "OrangeHRM, Inc" [ref=f1e359] [cursor=pointer]:
+          - /url: http://www.orangehrm.com
+        - text: . All rights reserved.
+```
+
+# Test source
+
+```ts
+  1  | const { expect } =require('@playwright/test');
+  2  | class PimPage {
+  3  | constructor(page) {
+  4  | this.page = page;
+  5  | this.pimMenu =
+  6  | page.locator(
+  7  | '//span[text()="PIM"]'
+  8  | );
+  9  | this.employeeInfoHeader =
+  10 | page.locator('h5:has-text("Employee Information")');
+  11 | }
+  12 | async navigateToEmployeeList() {
+  13 | await this.pimMenu.click();
+> 14 | await this.page.waitForURL(
+     |                 ^ Error: page.waitForURL: Test timeout of 60000ms exceeded.
+  15 | '**/pim/viewEmployeeList'
+  16 | );
+  17 | }
+  18 | async verifyEmployeePage() {
+  19 | await expect(
+  20 | this.employeeInfoHeader
+  21 | ).toBeVisible();
+  22 | }
+  23 | }
+  24 | module.exports = PimPage;
+```

@@ -4,3 +4,6 @@ ExcelReader.js
 testDataManager.js
 employeeData.json
 EmployeeData.xlsx
+allure-report 
+allure-results 
+test results

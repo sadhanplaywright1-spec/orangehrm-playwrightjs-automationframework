@@ -1,6 +1,0 @@
-[2026-08-24 13:18:46] INFO: Starting Employee List Page test
-[2026-08-24 13:18:46] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
-[2026-08-24 13:18:51] INFO: Logging into application
-[2026-08-24 13:19:01] INFO: Navigating to Employee List page
-[2026-08-24 13:19:12] INFO: Verifying Employee List page
-[2026-08-24 13:19:14] INFO: Employee List page verification completed successfully

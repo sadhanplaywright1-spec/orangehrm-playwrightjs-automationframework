@@ -1,0 +1,10 @@
+{
+"baseURL": "https://uat-orangehrm.company.com",
+"username": "uatadmin",
+"password": "password",
+"apiBaseUrl":"https://uat-reqres.in/api",
+"employee": {
+"name": "UATUser",
+"job": "QA"
+}
+}

@@ -1,20 +1,26 @@
 const { test, expect } = require('@playwright/test');
-const ApiLogger = require('../../src/utils/ApiLogger');
 const EmployeeApi = require('../../src/api/EmployeeApi');
+const ApiLogger = require('../../src/utils/ApiLogger');
 const ApiRetry = require('../../src/utils/ApiRetryUtil');
-test('@api @regression Verify Employee POST', async ({}, testInfo) => {
+const env = require('../../src/utils/EnvironmentManager');
+const TestDataLoader = require('../../src/api/TestDataLoader');
+const PayloadBuilder = require('../../src/api/PayloadBuilder');
+test('@api @smoke Verify Employee POST',
+async ({}, testInfo) => {
 const api = new EmployeeApi();
-const payload = {
-name: 'Sadhan',
-job: 'QA Engineer'
-};
-const startTime = Date.now();
-const response = await ApiRetry.execute(async () => {  
-return await api.createEmployee(
-'https://reqres.in/api/users/2',payload);
-}
+const employeeData =
+TestDataLoader.getEmployeeData(
+testInfo.project.name
 );
-console.log(await response.text());
+const payload =
+PayloadBuilder.employee(employeeData);
+const startTime = Date.now();
+const response = await ApiRetry.execute(async () => {
+return await api.createEmployee(
+`${env.apiBaseUrl}/users`,
+payload
+);
+});
 await ApiLogger.log(
 testInfo,
 'POST',

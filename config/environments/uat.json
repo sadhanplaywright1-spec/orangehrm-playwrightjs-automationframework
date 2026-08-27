@@ -1,6 +1,6 @@
 {
-"baseURL": "https://uat-orangehrm.company.com",
-"username": "uatadmin",
-"password": "password",
-"apiBaseUrl":"https://uat-reqres.in/api"
+"baseURL": "https://opensource.uat.orangehrmlive.com",
+"apiBaseUrl": "https://reqres.in/api",
+"username": "Admin",
+"password": "admin123"
 }

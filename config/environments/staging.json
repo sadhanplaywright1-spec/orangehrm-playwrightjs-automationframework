@@ -1,6 +1,6 @@
 {
-"baseURL": "https://staging-orangehrm.company.com",
-"username": "stageadmin",
-"password": "password",
-"apiBaseUrl":"https://staging-reqres.in/api"
+"baseURL": "https://opensource-demo.orangehrmlive.com",
+"apiBaseUrl": "https://reqres.in/api",
+"username": "Admin",
+"password": "admin123"
 }

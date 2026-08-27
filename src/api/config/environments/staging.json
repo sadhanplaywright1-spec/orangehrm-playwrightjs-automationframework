@@ -1,0 +1,10 @@
+{
+"baseURL": "https://staging-orangehrm.company.com",
+"username": "stageadmin",
+"password": "password",
+"apiBaseUrl":"https://staging-reqres.in/api",
+"employee": {
+"name": "StagingUser",
+"job": "QA"
+}
+}
