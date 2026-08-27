@@ -4938,3 +4938,171 @@ Call log:
 [2026-08-27 13:56:47] INFO: Verifying dashboard page loaded
 [2026-08-27 13:56:47] INFO: Validating Dashboard page
 [2026-08-27 13:56:49] INFO: Employee List verification completed successfully
+[2026-08-27 17:54:43] INFO: Starting Employee List Page test
+[2026-08-27 17:54:43] INFO: Starting Dashboard verification test
+[2026-08-27 17:54:43] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:54:43] INFO: Navigating to: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:54:43] INFO: Starting Employee List verification test
+[2026-08-27 17:54:43] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:54:45] INFO: Starting Employee List Page test
+[2026-08-27 17:54:45] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:54:45] INFO: Starting Employee List verification test
+[2026-08-27 17:54:45] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:54:45] INFO: Starting Dashboard verification test
+[2026-08-27 17:54:45] INFO: Navigating to: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:54:47] INFO: Starting Employee List verification test
+[2026-08-27 17:54:47] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:54:48] INFO: Starting Dashboard verification test
+[2026-08-27 17:54:48] INFO: Navigating to: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:54:50] INFO: Starting Employee List Page test
+[2026-08-27 17:54:50] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:54:54] INFO: Logging into OrangeHRM
+[2026-08-27 17:54:55] INFO: Logging into application
+[2026-08-27 17:54:55] INFO: Logging into application
+[2026-08-27 17:54:56] INFO: Logging into application
+[2026-08-27 17:54:57] INFO: Logging into OrangeHRM
+[2026-08-27 17:54:57] INFO: Waiting for Dashboard page to load
+[2026-08-27 17:54:57] INFO: Navigating to Employee List page
+[2026-08-27 17:54:57] INFO: Logging into OrangeHRM
+[2026-08-27 17:54:58] INFO: Verifying dashboard page loaded
+[2026-08-27 17:54:58] INFO: Logging into application
+[2026-08-27 17:54:58] INFO: Validating Dashboard page
+[2026-08-27 17:54:59] INFO: Validating Dashboard heading
+[2026-08-27 17:55:00] INFO: Waiting for Dashboard page to load
+[2026-08-27 17:55:00] INFO: Validating Dashboard heading
+[2026-08-27 17:55:00] INFO: Employee List verification completed successfully
+[2026-08-27 17:55:00] INFO: Dashboard verification completed successfully
+[2026-08-27 17:55:01] INFO: Dashboard verification completed successfully
+[2026-08-27 17:55:02] INFO: Logging into application
+[2026-08-27 17:55:02] INFO: Verifying Employee List page
+[2026-08-27 17:55:02] INFO: Logging into application
+[2026-08-27 17:55:03] INFO: Verifying dashboard page loaded
+[2026-08-27 17:55:03] INFO: Validating Dashboard page
+[2026-08-27 17:55:03] INFO: Employee List page verification completed successfully
+[2026-08-27 17:55:04] INFO: Navigating to Employee List page
+[2026-08-27 17:55:05] INFO: Employee List verification completed successfully
+[2026-08-27 17:55:08] INFO: Waiting for Dashboard page to load
+[2026-08-27 17:55:09] INFO: Verifying Employee List page
+[2026-08-27 17:55:11] INFO: Employee List page verification completed successfully
+[2026-08-27 17:55:11] INFO: Navigating to Employee List page
+[2026-08-27 17:55:12] INFO: Verifying dashboard page loaded
+[2026-08-27 17:55:12] INFO: Validating Dashboard page
+[2026-08-27 17:55:12] INFO: Validating Dashboard heading
+[2026-08-27 17:55:13] INFO: Employee List verification completed successfully
+[2026-08-27 17:55:13] INFO: Dashboard verification completed successfully
+[2026-08-27 17:55:17] INFO: Verifying Employee List page
+[2026-08-27 17:55:18] INFO: Employee List page verification completed successfully
+[2026-08-27 17:55:23] INFO: Starting Employee List Page test
+[2026-08-27 17:55:23] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:55:23] INFO: Starting Dashboard verification test
+[2026-08-27 17:55:23] INFO: Navigating to: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:55:24] INFO: Starting Dashboard verification test
+[2026-08-27 17:55:24] INFO: Starting Employee List Page test
+[2026-08-27 17:55:24] INFO: Navigating to: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:55:24] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:55:27] INFO: Starting Employee List verification test
+[2026-08-27 17:55:27] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:55:27] INFO: Logging into application
+[2026-08-27 17:55:28] INFO: Navigating to Employee List page
+[2026-08-27 17:55:29] INFO: Logging into OrangeHRM
+[2026-08-27 17:55:30] INFO: Logging into OrangeHRM
+[2026-08-27 17:55:30] INFO: Logging into application
+[2026-08-27 17:55:31] INFO: Starting Employee List verification test
+[2026-08-27 17:55:31] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:55:32] INFO: Waiting for Dashboard page to load
+[2026-08-27 17:55:32] INFO: Validating Dashboard heading
+[2026-08-27 17:55:33] INFO: Verifying Employee List page
+[2026-08-27 17:55:33] INFO: Dashboard verification completed successfully
+[2026-08-27 17:55:34] INFO: Employee List page verification completed successfully
+[2026-08-27 17:55:35] INFO: Logging into application
+[2026-08-27 17:55:39] INFO: Waiting for Dashboard page to load
+[2026-08-27 17:55:39] INFO: Validating Dashboard heading
+[2026-08-27 17:55:39] INFO: Navigating to Employee List page
+[2026-08-27 17:55:40] INFO: Dashboard verification completed successfully
+[2026-08-27 17:55:41] INFO: Verifying dashboard page loaded
+[2026-08-27 17:55:41] INFO: Validating Dashboard page
+[2026-08-27 17:55:44] INFO: Starting Dashboard verification test
+[2026-08-27 17:55:44] INFO: Navigating to: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:55:45] INFO: Logging into application
+[2026-08-27 17:55:45] INFO: Employee List verification completed successfully
+[2026-08-27 17:55:48] INFO: Verifying Employee List page
+[2026-08-27 17:55:49] INFO: Verifying dashboard page loaded
+[2026-08-27 17:55:49] INFO: Validating Dashboard page
+[2026-08-27 17:55:50] INFO: Employee List verification completed successfully
+[2026-08-27 17:55:51] INFO: Employee List page verification completed successfully
+[2026-08-27 17:55:51] INFO: Starting Employee List Page test
+[2026-08-27 17:55:51] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:55:51] INFO: Starting Employee List verification test
+[2026-08-27 17:55:51] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:55:57] INFO: Logging into OrangeHRM
+[2026-08-27 17:55:58] INFO: Logging into application
+[2026-08-27 17:55:59] INFO: Logging into application
+[2026-08-27 17:56:00] INFO: Waiting for Dashboard page to load
+[2026-08-27 17:56:01] INFO: Validating Dashboard heading
+[2026-08-27 17:56:02] INFO: Verifying dashboard page loaded
+[2026-08-27 17:56:02] INFO: Validating Dashboard page
+[2026-08-27 17:56:02] INFO: Employee List verification completed successfully
+[2026-08-27 17:56:02] INFO: Dashboard verification completed successfully
+[2026-08-27 17:56:03] INFO: Navigating to Employee List page
+[2026-08-27 17:56:07] INFO: Starting Employee List verification test
+[2026-08-27 17:56:07] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:56:11] INFO: Starting Dashboard verification test
+[2026-08-27 17:56:11] INFO: Navigating to: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:56:12] INFO: Logging into application
+[2026-08-27 17:56:14] INFO: Verifying dashboard page loaded
+[2026-08-27 17:56:14] INFO: Validating Dashboard page
+[2026-08-27 17:56:15] INFO: Employee List verification completed successfully
+[2026-08-27 17:56:16] INFO: Starting Employee List verification test
+[2026-08-27 17:56:16] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:56:20] INFO: Starting Employee List Page test
+[2026-08-27 17:56:20] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:56:24] INFO: Logging into application
+[2026-08-27 17:56:25] INFO: Starting Dashboard verification test
+[2026-08-27 17:56:25] INFO: Navigating to: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:56:27] INFO: Logging into OrangeHRM
+[2026-08-27 17:56:27] INFO: Verifying dashboard page loaded
+[2026-08-27 17:56:27] INFO: Validating Dashboard page
+[2026-08-27 17:56:27] INFO: Employee List verification completed successfully
+[2026-08-27 17:56:28] INFO: Logging into application
+[2026-08-27 17:56:29] INFO: Logging into OrangeHRM
+[2026-08-27 17:56:29] INFO: Waiting for Dashboard page to load
+[2026-08-27 17:56:30] INFO: Waiting for Dashboard page to load
+[2026-08-27 17:56:30] INFO: Validating Dashboard heading
+[2026-08-27 17:56:31] INFO: Navigating to Employee List page
+[2026-08-27 17:56:32] INFO: Dashboard verification completed successfully
+[2026-08-27 17:56:32] INFO: Validating Dashboard heading
+[2026-08-27 17:56:33] INFO: Dashboard verification completed successfully
+[2026-08-27 17:56:33] INFO: Starting Employee List Page test
+[2026-08-27 17:56:33] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:56:34] INFO: Verifying Employee List page
+[2026-08-27 17:56:34] INFO: Employee List page verification completed successfully
+[2026-08-27 17:56:38] INFO: Starting Employee List Page test
+[2026-08-27 17:56:38] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:56:40] INFO: Logging into application
+[2026-08-27 17:56:42] INFO: Starting Dashboard verification test
+[2026-08-27 17:56:42] INFO: Navigating to: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:56:43] INFO: Navigating to Employee List page
+[2026-08-27 17:56:43] INFO: Starting Employee List verification test
+[2026-08-27 17:56:43] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:56:47] INFO: Logging into application
+[2026-08-27 17:56:48] INFO: Verifying Employee List page
+[2026-08-27 17:56:48] INFO: Employee List page verification completed successfully
+[2026-08-27 17:56:49] INFO: Logging into application
+[2026-08-27 17:56:49] INFO: Logging into OrangeHRM
+[2026-08-27 17:56:49] INFO: Verifying Employee List page
+[2026-08-27 17:56:51] INFO: Navigating to Employee List page
+[2026-08-27 17:56:52] INFO: Employee List page verification completed successfully
+[2026-08-27 17:56:55] INFO: Verifying Employee List page
+[2026-08-27 17:56:55] INFO: Waiting for Dashboard page to load
+[2026-08-27 17:56:55] INFO: Verifying dashboard page loaded
+[2026-08-27 17:56:55] INFO: Validating Dashboard page
+[2026-08-27 17:56:55] INFO: Validating Dashboard heading
+[2026-08-27 17:56:55] INFO: Employee List page verification completed successfully
+[2026-08-27 17:56:56] INFO: Dashboard verification completed successfully
+[2026-08-27 17:56:56] INFO: Employee List verification completed successfully
+[2026-08-27 17:57:05] INFO: Starting Employee List Page test
+[2026-08-27 17:57:05] INFO: Navigating to application: https://opensource-demo.orangehrmlive.com
+[2026-08-27 17:57:09] INFO: Logging into application
+[2026-08-27 17:57:12] INFO: Navigating to Employee List page
+[2026-08-27 17:57:14] INFO: Verifying Employee List page
+[2026-08-27 17:57:15] INFO: Employee List page verification completed successfully
