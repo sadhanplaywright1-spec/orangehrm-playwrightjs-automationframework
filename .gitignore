@@ -7,3 +7,11 @@ EmployeeData.xlsx
 allure-report 
 allure-results 
 test results
+node_modules
+playwright-report
+test-results
+allure-results
+videos
+screenshots
+coverage
+dist
