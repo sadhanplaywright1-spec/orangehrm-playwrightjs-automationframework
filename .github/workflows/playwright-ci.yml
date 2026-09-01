@@ -14,7 +14,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-      include:
         - env: QA
           browser: chromium
         - env: QA
@@ -53,25 +52,23 @@ run: |
        npx playwright test `
        --config=playwright.ui.config.js `
        --project=${{ matrix.browser }}
-       - name: Upload UI Allure Results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-        name: allure-ui-${{ matrix.project }}
-        path: allure-results
+-name: Upload UI Allure Results
+        if:always()
+        uses:actions/upload-artifact@v4
+with:
+          name:allure-ui-${{ matrix.env }}-${{ matrix.browser }}
+          path:allure-results
+
 api-tests:
 runs-on: windows-latest
 strategy:
 fail-fast: false
 matrix:
-env:
-- QA
-- UAT
-- STAGING
-name: API-${{ matrix.env }}
-env:
-TEST_ENV: ${{ matrix.env }}
-CI: true
+env: [QA, UAT, STAGING]
+    name: API-${{ matrix.env }}
+    env:
+      TEST_ENV: ${{ matrix.env }}
+      CI: true
 steps:
 - name: Checkout Repository
   uses: actions/checkout@v4
