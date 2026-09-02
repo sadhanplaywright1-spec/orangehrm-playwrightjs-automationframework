@@ -60,16 +60,16 @@ with:
           path:allure-results
 
 api-tests:
-        name: API-${{ matrix.env }}
-        runs-on: windows-latest
-        strategy:
-        fail-fast: false
-        matrix:
-        env: [QA, UAT, STAGING]
-        env:
-        TEST_ENV: ${{ matrix.env }}
-        CI: true
- steps:
+   name: API-${{ matrix.env }}
+   runs-on: windows-latest
+   strategy:
+   concurrency: fail-fast: false
+matrix:
+env: [QA, UAT, STAGING]
+env:
+TEST_ENV: ${{ matrix.env }}
+CI: true
+steps:
 - name: Checkout Repository
   uses: actions/checkout@v4
 - name: Setup Node
