@@ -9,9 +9,10 @@ on:
       - main
       - develop
 jobs:
-    ui-tests: UI-${{ matrix.env }}-${{ matrix.browser }}
-    runs-on: windows-latest
-    strategy:
+   ui-tests: 
+   name: UI-${{ matrix.env }}-${{ matrix.browser }}
+   runs-on: windows-latest
+   strategy:
       fail-fast: false
       matrix: 
       include:
@@ -31,10 +32,10 @@ jobs:
           browser: chromium
         - env: STAGING
           browser: firefox
-        - env: STAGING
+        - env: webkit
 env:
-      TEST_ENV: ${{ matrix.env }}
-CI: true
+    TEST_ENV: ${{ matrix.env }}
+    CI: true
 steps:
 - name: Checkout Repository
   uses: actions/checkout@v4
@@ -58,20 +59,18 @@ steps:
   with:
           name:allure-ui-${{ matrix.env }}-${{ matrix.browser }}
           path:allure-results
-
 api-tests:
    name: API-${{ matrix.env }}
-   runs-on: windows-latest
 strategy:
-     fail-fast: false
-matrix:
-     env:
-     - QA
-     - UAT
-     - STAGING
-     env:
-     TEST_ENV: ${{ matrix.env }}
-     CI: true
+  fail-fast: false
+  matrix:
+      env:
+      - QA
+      - UAT
+      - STAGING
+      env:
+      TEST_ENV: ${{ matrix.env }}
+      CI: true
 steps:
 - name: Checkout Repository
   uses: actions/checkout@v4
