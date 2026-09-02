@@ -10,29 +10,29 @@ on:
       - develop
 jobs:
    ui-tests: 
-   name: UI-${{ matrix.env }}-${{ matrix.browser }}
-   runs-on: windows-latest
+    name: UI-${{ matrix.env }}-${{ matrix.browser }}
+    runs-on: windows-latest
    strategy:
       fail-fast: false
       matrix: 
-      include:
-        - env: QA
-          browser: chromium
-        - env: QA
-          browser: firefox
-        - env: QA
-          browser: webkit
-        - env: UAT
-          browser: chromium
-        - env: UAT
-          browser: firefox
-        - env: UAT
-          browser: webkit
-        - env: STAGING
-          browser: chromium
-        - env: STAGING
-          browser: firefox
-        - env: webkit
+        include:
+         - env: QA
+           browser: chromium
+         - env: QA
+           browser: firefox
+         - env: QA
+           browser: webkit
+         - env: UAT
+           browser: chromium
+         - env: UAT
+           browser: firefox
+         - env: UAT
+           browser: webkit
+         - env: STAGING
+           browser: chromium
+         - env: STAGING
+           browser: firefox
+         - env: webkit
 env:
     TEST_ENV: ${{ matrix.env }}
     CI: true
@@ -60,15 +60,16 @@ steps:
           name:allure-ui-${{ matrix.env }}-${{ matrix.browser }}
           path:allure-results
 api-tests:
-   name: API-${{ matrix.env }}
-strategy:
+  name: API-${{ matrix.env }}
+  runs-on: windows-latest
+  strategy:
   fail-fast: false
-  matrix:
-      env:
-      - QA
-      - UAT
-      - STAGING
-      env:
+matrix:
+  env:
+    - QA
+    - UAT
+    - STAGING
+  env:
       TEST_ENV: ${{ matrix.env }}
       CI: true
 steps:
