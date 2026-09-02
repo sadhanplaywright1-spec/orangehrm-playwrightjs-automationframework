@@ -9,11 +9,12 @@ on:
       - main
       - develop
 jobs:
-  ui-tests:
+    ui-tests: UI-${{ matrix.env }}-${{ matrix.browser }}
     runs-on: windows-latest
     strategy:
       fail-fast: false
-      matrix:
+      matrix: 
+      include:
         - env: QA
           browser: chromium
         - env: QA
@@ -31,7 +32,6 @@ jobs:
         - env: STAGING
           browser: firefox
         - env: STAGING
-name: UI-${{ matrix.env }}-${{ matrix.browser }}
 env:
       TEST_ENV: ${{ matrix.env }}
 CI: true
@@ -60,14 +60,18 @@ steps:
           path:allure-results
 
 api-tests:
-runs-on: windows-latest
+   name: API-${{ matrix.env }}
+   runs-on: windows-latest
 strategy:
-fail-fast: false
+     fail-fast: false
 matrix:
-    name: API-${{ matrix.env }}
-    env:
-      TEST_ENV: ${{ matrix.env }}
-      CI: true
+     env:
+     - QA
+     - UAT
+     - STAGING
+     env:
+     TEST_ENV: ${{ matrix.env }}
+     CI: true
 steps:
 - name: Checkout Repository
   uses: actions/checkout@v4
@@ -82,16 +86,16 @@ steps:
 - name: Run API Tests
   shell: pwsh
   run: |
-   npx playwright test 
-   --config=playwright.api.config.js
+      npx playwright test 
+      --config=playwright.api.config.js
 - name: Upload API Allure Results
 if: always()
 uses: actions/upload-artifact@v4
 with:
-name: allure-api-${{ matrix.env }}
-path: allure-results
-allure-report:
-runs-on: windows-latest
+ name: allure-api-${{ matrix.env }}
+ path: allure-results
+ allure-report:
+ runs-on: windows-latest
 needs:
  -ui-tests
  -api-tests
