@@ -33,10 +33,10 @@ jobs:
          - env: STAGING
            browser: firefox
          - env: webkit
-           env:
-             TEST_ENV: ${{ matrix.env }}
-             CI: true
-        steps:
+   env:
+           TEST_ENV: ${{ matrix.env }}
+           CI: true
+   steps:
         - name: Checkout Repository
           uses: actions/checkout@v4
         - name: Setup Node
