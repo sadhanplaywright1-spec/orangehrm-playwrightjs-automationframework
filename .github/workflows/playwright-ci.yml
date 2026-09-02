@@ -70,8 +70,8 @@ api-tests:
         - UAT
         - STAGING
     env:
-    TEST_ENV: ${{ matrix.env }}
-    CI: true
+      TEST_ENV: ${{ matrix.env }}
+      CI: true
 steps:
  - name: Checkout Repository
    uses: actions/checkout@v4 
