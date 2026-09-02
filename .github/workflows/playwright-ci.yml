@@ -12,7 +12,7 @@ jobs:
    ui-tests: 
     name: UI-${{ matrix.env }}-${{ matrix.browser }}
     runs-on: windows-latest
-strategy:
+   strategy:
       fail-fast: false
       matrix: 
         include:
@@ -60,16 +60,16 @@ steps:
       name:allure-ui-${{ matrix.env }}-${{ matrix.browser }}
       path:allure-results
 api-tests:
-  name: API-${{ matrix.env }}
-  runs-on: windows-latest
-  strategy:
+    name: API-${{ matrix.env }}
+    runs-on: windows-latest
+strategy:
     fail-fast: false
     matrix:
        env:
         - QA
         - UAT
         - STAGING
-  env:
+env:
     TEST_ENV: ${{ matrix.env }}
     CI: true
 steps:
