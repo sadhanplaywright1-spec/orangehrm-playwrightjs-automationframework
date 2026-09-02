@@ -34,8 +34,8 @@ jobs:
            browser: firefox
          - env: webkit
 env:
-  TEST_ENV: ${{ matrix.env }}
-  CI: true
+ TEST_ENV: ${{ matrix.env }}
+ CI: true
 steps:
   - name: Checkout Repository
     uses: actions/checkout@v4
@@ -62,14 +62,14 @@ steps:
 api-tests:
     name: API-${{ matrix.env }}
     runs-on: windows-latest
-strategy:
+    strategy:
     fail-fast: false
     matrix:
-       env:
+    env:
         - QA
         - UAT
         - STAGING
-env:
+    env:
     TEST_ENV: ${{ matrix.env }}
     CI: true
 steps:
