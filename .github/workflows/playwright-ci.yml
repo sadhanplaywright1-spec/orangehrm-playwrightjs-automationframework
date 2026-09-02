@@ -63,8 +63,9 @@ api-tests:
    name: API-${{ matrix.env }}
    runs-on: windows-latest
    strategy:
-   concurrency: fail-fast: false
-matrix:
+   concurrency: 
+   fail-fast: false
+ matrix:
 env: [QA, UAT, STAGING]
 env:
 TEST_ENV: ${{ matrix.env }}
