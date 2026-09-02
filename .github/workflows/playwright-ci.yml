@@ -132,3 +132,20 @@ jobs:
         with:
           name: final-allure-report
           path: allure-report
+      - name: Send Email Notification
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+         server_address: smtp.office365.com
+         server_port: 465 
+         secure: true
+         username: ${{ secrets.EMAIL_USERNAME }}
+         password: ${{ secrets.EMAIL_PASSWORD }}
+         subject: "Playwright CI Result - ${{ job.status }}"
+         body: |
+          Repository: ${{ github.repository }}
+          Branch: ${{ github.ref_name }}
+          Status: ${{ job.status }}
+          Triggered By: ${{ github.actor }}
+        to: sadhan.sqa1@gmail.com,Lejo.Jacob@ust.com,Divya.Nair3@ust.com
+        from: ${{ secrets.EMAIL_USERNAME }}
