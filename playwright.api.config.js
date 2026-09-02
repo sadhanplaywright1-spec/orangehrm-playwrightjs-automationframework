@@ -15,11 +15,9 @@ outputFolder: 'api-playwright-report'
 ],
 use: {
     baseURL: process.env.BASE_URL,
-trace: 'retain-on-failure'
-},
+trace: 'on-first-retry'},
 projects: [
-{
-name: 'QA',
+{name: 'QA',
 use: {
 apiBaseUrl:
 require('./config/environments/qa.json').apiBaseUrl

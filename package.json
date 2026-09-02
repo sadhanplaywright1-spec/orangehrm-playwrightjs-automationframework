@@ -43,9 +43,7 @@
         "cross-env": "^10.1.0",
         "csv-parse": "^5.0.0",
         "dotenv": "^16.6.1",
-        "winston": "^3.19.0"
-    },
-    "dependencies": {
+        "winston": "^3.19.0",
         "xlsx": "^0.18.5"
     }
 }

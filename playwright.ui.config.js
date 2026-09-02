@@ -37,7 +37,7 @@ outputFolder: 'playwright-report'
 use: {
 headless:true, 
 screenshot: "only-on-failure",
-trace: "retain-on-failure",
+trace: 'on-first-retry',
 video: "retain-on-failure",
 viewport: {
 width: 1920,

@@ -16,3 +16,6 @@ screenshots
 coverage
 dist 
 playwright-curd-report
+logs  
+api-playwright-report 
+playwright-crud-report
