@@ -62,8 +62,8 @@ jobs:
         shell: pwsh
         run: |
           npx playwright test `
-            --config=playwright.ui.config.js `
-            --project=${{ matrix.browser }}
+          --config=playwright.ui.config.js `
+          --project=${{ matrix.env }}-${{ matrix.browser }}
 
       - name: Upload UI Allure Results
         if: always()
