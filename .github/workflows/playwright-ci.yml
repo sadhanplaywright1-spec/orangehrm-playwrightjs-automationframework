@@ -57,9 +57,9 @@ jobs:
               if: always()
               uses: actions/upload-artifact@v4
               with:
-                name:allure-ui-${{ matrix.env }}-${{ matrix.browser }}
-                path:allure-results
-    api-tests:
+               name: allure-ui-${{ matrix.env }}-${{ matrix.browser }}
+               path: allure-results
+  api-tests:
               name: API-${{ matrix.env }}
               runs-on: windows-latest
               strategy:
@@ -70,8 +70,8 @@ jobs:
                  - UAT
                  - STAGING
               env:
-              TEST_ENV: ${{ matrix.env }}
-              CI: true
+               TEST_ENV: ${{ matrix.env }}
+               CI: true
               steps:
                - name: Checkout Repository
                  uses: actions/checkout@v4 
